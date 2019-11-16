@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" template="/templates/base.xhtml">
+
+
+
+	<ui:define name="topo">
+
+		<center>
+			<h:form>
+				<h:outputLabel value="Bem vindo #{usuarioBean.usuario.nome}" />
+				<h:outputLabel value=" você está no nível #{usuarioBean.usuario.nivel}" />
+			</h:form>
+		</center>
+
+	</ui:define>
+
+	<ui:define name="conteudo">
+
+		<h:panelGroup id="painelgrupo">
+			<h:form rendered="#{licaoBean.iniciada==false}">
+				<p:commandButton value="Iniciar Proxima Lição" action="#{licaoBean.carregarLicao(usuarioBean.usuario)}" update="painelgrupo" />
+			</h:form>
+
+			<h:form id="form" rendered="#{licaoBean.iniciada}">
+				<p:commandButton value="Explicação" oncomplete="PF('explicacao').show();" update="explicacao" />
+				<p:commandButton value="Traduções" oncomplete="PF('traducoes').show();" update="traducoes" />
+
+				<h3>Questão:</h3>
+				<p:steps activeIndex="#{licaoBean.licao.ordem}" id="etapas">
+					<p:menuitem value="" />
+					<p:menuitem value="" />
+					<p:menuitem value="" />
+					<p:menuitem value="" />
+					<p:menuitem value="" />
+					<p:menuitem value="" />
+					<p:menuitem value="" />
+					<p:menuitem value="" />
+					<p:menuitem value="" />
+					<p:menuitem value="" />
+				</p:steps>
+
+				<h3 style="margin-bottom: 0">Traduza:</h3>
+				<h2>
+					<p:panelGrid columns="3" width="800">
+						<p:outputLabel value="#{licaoBean.perguntaAtual}" />
+						<p:inputText value="#{licaoBean.respostaEnviada}" />
+						<p:commandButton value="Enviar" action="#{licaoBean.verificarTentativa}" update=":form,messages,growl,painelgrupo" />
+					</p:panelGrid>
+				</h2>
+
+			</h:form>
+
+
+			<p:dialog header="Explicação" widgetVar="explicacao" draggable="true" resizable="true" modal="false" closable="true">
+				<h:form id="explicacao">
+					<h:inputTextarea value="#{licaoBean.licao.explicacao}" escape="false"  style="font-weight: bold; display: block;" readonly="true" rows="25" cols="60"/>
+				</h:form>
+			</p:dialog>
+
+			<p:dialog header="Traduções" widgetVar="traducoes" draggable="true" resizable="true" modal="false" closable="true">
+				<h:form id="traducoes">
+					<h:inputTextarea value="#{licaoBean.licao.traducoes}" escape="false" style="font-weight: bold; display: block;" readonly="true"  rows="15" cols="40"/>
+				</h:form>
+			</p:dialog>
+
+		</h:panelGroup>
+
+
+
+		<p:messages id="messages" autoUpdate="true" globalOnly="true" />
+		<p:growl id="growl" showDetail="false" life="2000" autoUpdate="true" globalOnly="true" />
+
+		<!-- 		<h3>Interactive</h3> -->
+		<!-- 		<p:steps activeIndex="3" styleClass="custom" readonly="false"> -->
+		<!-- 			<p:menuitem value="Personal" url="#"  /> -->
+		<!-- 			<p:menuitem value="Seat Selection" url="#" /> -->
+		<!-- 			<p:menuitem value="Payment" url="#" /> -->
+		<!-- 			<p:menuitem value="Confirmation" url="#" /> -->
+		<!-- 		</p:steps> -->
+
+	</ui:define>
+
+	<ui:define name="dados">
+		<ui:include src="/includes/rank.xhtml" />
+
+	</ui:define>
+
+	<ui:define name="menu">
+		<ui:include src="/includes/menu.xhtml" />
+	</ui:define>
+
+	<ui:define name="rodape">
+
+		<!-- 		<p:graphicImage library="images" name="email.png" /> -->
+
+		<p:dock position="bottom">
+			<p:menuitem value="Habilidades" icon="/resources/images/youtube.ico" url="#" />
+			<p:menuitem value="Habilidades" icon="/resources/images/aulas.ico" url="#" />
+			<p:menuitem value="Habilidades" icon="/resources/images/ingles.ico" url="#" />
+
+		</p:dock>
+
+		<h:form>
+			<p:commandButton value="Deslogar" action="/pages/cadastro-login.xhtml" />
+			<p:commandButton value="Cadastro de Lições" rendered="#{usuarioBean.usuario.previlegio==5}" action="/pages/cadastro-licoes.xhtml" />
+		</h:form>
+	</ui:define>
+
+
+</ui:composition>

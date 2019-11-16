@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title></title>
+	
+</h:head>
+<h:body>
+
+
+	<p:layout fullPage="true">
+
+		<p:layoutUnit header="Funlingo" position="north" size="100" resizable="true" closable="false" collapsible="true">
+			<ui:insert name="topo" />
+		</p:layoutUnit>
+
+		<p:layoutUnit header="Projeto Alunos do Pitágoras" position="south" size="130" resizable="false" closable="false" collapsible="false">
+			<ui:insert name="rodape" />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="west" size="300" header="Menu" resizable="true" closable="false" collapsible="true">
+
+			<ui:insert name="menu" />
+
+		</p:layoutUnit>
+
+		<p:layoutUnit position="east" size="400" header="Rank" resizable="true" closable="false" collapsible="true" effect="drop">
+			<ui:insert name="dados" />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="center">
+		
+			<ui:insert name="conteudo" />
+			
+		</p:layoutUnit>
+
+	</p:layout>
+
+
+</h:body>
+</html>

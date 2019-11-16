@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="/templates/inicial.xhtml">
+	<ui:define name="conteudo">
+		<p:growl id="mensagem" />
+		<center>
+			<h:form>
+				<p:outputLabel value="Nivel:" />
+				<p:inputText size="20" maxlength="100" value="#{licaoBean.licao.nivel}" />
+
+
+				<h:panelGrid columns="4">
+
+					<p:outputLabel value="Pergunta 1:" />
+					<p:inputText size="50" maxlength="100" value="#{licaoBean.licao.pergunta1}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Resposta 1:" />
+					<p:inputText size="100" maxlength="200" value="#{licaoBean.licao.resposta1}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Pergunta 2:" />
+					<p:inputText size="50" maxlength="100" value="#{licaoBean.licao.pergunta2}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Resposta 2:" />
+					<p:inputText size="100" maxlength="200" value="#{licaoBean.licao.resposta2}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Pergunta 3:" />
+					<p:inputText size="50" maxlength="100" value="#{licaoBean.licao.pergunta3}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Resposta 3:" />
+					<p:inputText size="100" maxlength="200" value="#{licaoBean.licao.resposta3}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Pergunta 4:" />
+					<p:inputText size="50" maxlength="100" value="#{licaoBean.licao.pergunta4}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Resposta 4:" />
+					<p:inputText size="100" maxlength="200" value="#{licaoBean.licao.resposta4}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Pergunta 5:" />
+					<p:inputText size="50" maxlength="100" value="#{licaoBean.licao.pergunta5}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Resposta 5:" />
+					<p:inputText size="100" maxlength="200" value="#{licaoBean.licao.resposta5}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Pergunta 6:" />
+					<p:inputText size="50" maxlength="100" value="#{licaoBean.licao.pergunta6}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Resposta 6:" />
+					<p:inputText size="100" maxlength="200" value="#{licaoBean.licao.resposta6}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Pergunta 7:" />
+					<p:inputText size="50" maxlength="100" value="#{licaoBean.licao.pergunta7}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Resposta 7:" />
+					<p:inputText size="100" maxlength="200" value="#{licaoBean.licao.resposta7}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Pergunta 8:" />
+					<p:inputText size="50" maxlength="100" value="#{licaoBean.licao.pergunta8}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Resposta 8:" />
+					<p:inputText size="100" maxlength="200" value="#{licaoBean.licao.resposta8}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Pergunta 9:" />
+					<p:inputText size="50" maxlength="100" value="#{licaoBean.licao.pergunta9}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Resposta 9:" />
+					<p:inputText size="100" maxlength="200" value="#{licaoBean.licao.resposta9}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Pergunta 10:" />
+					<p:inputText size="50" maxlength="100" value="#{licaoBean.licao.pergunta10}" required="true" requiredMessage="Campo Vazio" />
+
+					<p:outputLabel value="Resposta 10:" />
+					<p:inputText size="100" maxlength="200" value="#{licaoBean.licao.resposta10}" required="true" requiredMessage="Campo Vazio" />
+
+
+
+
+
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+						<p:outputLabel value="Explicação:" />
+						<p:inputTextarea cols="100" rows="10" value="#{licaoBean.licao.explicacao}" />
+						<p:outputLabel value="Traduções:" />
+						<p:inputTextarea cols="100" rows="10" value="#{licaoBean.licao.traducoes}" />
+
+					<p:commandButton value="Cadastrar" action="#{licaoBean.salvar}" />
+				</h:panelGrid>
+			</h:form>
+		</center>
+	</ui:define>
+
+	<ui:define name="rodape">
+		<h:outputLabel value="RODAPÉ" />
+	</ui:define>
+
+</ui:composition>
+</html>
